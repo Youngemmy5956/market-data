@@ -5,6 +5,25 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function page() {
+
+    // const [data, setData] = useState(null)
+    // const [isLoading, setLoading] = useState(false)
+   
+    // useEffect(() => {
+    //   setLoading(true)
+    //   fetch("https://randomuser.me/api/?page=5&results=5")
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       setData(data)
+    //       console.log(data);
+    //       setLoading(false)
+    //     })
+    // }, [])
+   
+    // if (isLoading) return <p>Loading...</p>
+    // if (!data) return <p>No profile data</p>
+
+
   const [posts, setPosts] = useState([]);
   const fetchData = async () => {
     const { data } = await axios.get(
