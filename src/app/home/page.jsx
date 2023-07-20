@@ -1,11 +1,25 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import axios from "axios";
+import { useState, useEffect } from 'react';
+
 
 export default function page() {
+    const [posts, setPosts] = useState([]);
+    const fetchData = async () => {
+        const { data } = await axios.get("https://randomuser.me/api/?page=5&results=5");
+        setPosts(data);
+        console.log(data);
+      };
+      useEffect(() => {
+        fetchData();
+      }, []);
+    
   return (
     <div className=" text-black">
       <div className="w-full bg-[#fff1db] flex">
-        <div className="lg:md:flex md:lg:ml-32 rounded-bl-[100px] h-[100vh] pt-10 w-[70%] px-4">
+        <div className="lg:md:flex md:lg:ml-32 rounded-bl-[80px] h-[100vh] pt-10 w-[70%] px-4">
           <span>
             <div className="flex">
               <Image
@@ -58,19 +72,23 @@ export default function page() {
         </div>
       </div>
 
-      <section className="bg-white">
-        <span>
-          <h1>Explore the latest live trends on food data</h1>
-          <h1>
+      <section className="bg-white mb-20">
+        <span >
+          <h1 className="pl-32">Explore the latest live trends on food data</h1>
+          <h1 className="pl-32">
             We constantly track and update in real-time food market data,
             enabling informed decisions.
           </h1>
         </span>
 
-        <div>
-          <table>
-            <tr className="border-4 rounded-t-full">
-              <th>Name</th>
+   
+
+        <div className="w-full">
+
+           
+          <table className="w-[90%] rounded-t-[100%] ml-28">
+            <tr className=" bg-[#fed89d] py-2">
+              <th className="" >Name</th>
               <th>Last Price (₦)</th>
               <th>24h Change</th>
               <th>State</th>
@@ -78,11 +96,14 @@ export default function page() {
               <th>Markets</th>
             </tr>
             <tr>
-              <td> </td>
-              <td> </td>
-              <td></td>
-              <td></td>
-              <td></td>
+            {posts?.map((post) => (
+              
+            ))}
+              <td>{post.gender} </td>
+              <td>{post.name} </td>
+              <td>{post.location}</td>
+              <td>{post.email}</td>
+              <td>{post.login}</td>
               <td></td>
             </tr>
           </table>
