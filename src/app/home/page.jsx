@@ -2,20 +2,21 @@
 import React from "react";
 import Image from "next/image";
 import axios from "axios";
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect } from "react";
 
 export default function page() {
-    const [posts, setPosts] = useState([]);
-    const fetchData = async () => {
-        const { data } = await axios.get("https://randomuser.me/api/?page=5&results=5");
-        setPosts(data);
-        console.log(data);
-      };
-      useEffect(() => {
-        fetchData();
-      }, []);
-    
+  const [posts, setPosts] = useState([]);
+  const fetchData = async () => {
+    const { data } = await axios.get(
+      "https://randomuser.me/api/?page=5&results=5"
+    );
+    setPosts(data);
+    console.log(data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className=" text-black">
       <div className="w-full bg-[#fff1db] flex">
@@ -73,7 +74,7 @@ export default function page() {
       </div>
 
       <section className="bg-white mb-20">
-        <span >
+        <span>
           <h1 className="pl-32">Explore the latest live trends on food data</h1>
           <h1 className="pl-32">
             We constantly track and update in real-time food market data,
@@ -81,14 +82,10 @@ export default function page() {
           </h1>
         </span>
 
-   
-
         <div className="w-full">
-
-           
           <table className="w-[90%] rounded-t-[100%] ml-28">
             <tr className=" bg-[#fed89d] py-2">
-              <th className="" >Name</th>
+              <th className="">Name</th>
               <th>Last Price (₦)</th>
               <th>24h Change</th>
               <th>State</th>
@@ -96,15 +93,17 @@ export default function page() {
               <th>Markets</th>
             </tr>
             <tr>
-            {posts?.map((post) => (
-              
-            ))}
-              <td>{post.gender} </td>
-              <td>{post.name} </td>
-              <td>{post.location}</td>
-              <td>{post.email}</td>
-              <td>{post.login}</td>
-              <td></td>
+              <div>
+                {posts?.map((post) => (
+                  <div key={post.id} className="text-white">
+                    <td>{post.gender} </td>
+                    <td>{post.name} </td>
+                    <td>{post.location}</td>
+                    <td>{post.email}</td>
+                    <td>{post.login}</td>
+                  </div>
+                ))}
+              </div>
             </tr>
           </table>
         </div>
