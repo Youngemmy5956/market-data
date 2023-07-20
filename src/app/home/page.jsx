@@ -5,51 +5,50 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 export default function page() {
+  // const [data, setData] = useState(null)
+  // const [isLoading, setLoading] = useState(false)
 
-    // const [data, setData] = useState(null)
-    // const [isLoading, setLoading] = useState(false)
-   
-    // useEffect(() => {
-    //   setLoading(true)
-    //   fetch("https://randomuser.me/api/?page=5&results=5")
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       setData(data)
-    //       console.log(data);
-    //       setLoading(false)
-    //     })
-    // }, [])
-   
-    // if (isLoading) return <p>Loading...</p>
-    // if (!data) return <p>No profile data</p>
+  // useEffect(() => {
+  //   setLoading(true)
+  //   fetch("https://randomuser.me/api/?page=5&results=5")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setData(data)
+  //       console.log(data);
+  //       setLoading(false)
+  //     })
+  // }, [])
 
+  // if (isLoading) return <p>Loading...</p>
+  // if (!data) return <p>No profile data</p>
 
   const [posts, setPosts] = useState([]);
-//   const fetchData = async () => {
-//     const { data } = await axios.get(
-//       "https://randomuser.me/api/?page=5&results=5"
-//     );
-//     setPosts([...posts,...data.results]);
-//     console.log(data.results);
-//   };
-//   useEffect(() => {
-//     fetchData();
-//   }, []);
+  //   const fetchData = async () => {
+  //     const { data } = await axios.get(
+  //       "https://randomuser.me/api/?page=5&results=5"
+  //     );
+  //     setPosts([...posts,...data.results]);
+  //     console.log(data.results);
+  //   };
+  //   useEffect(() => {
+  //     fetchData();
+  //   }, []);
 
-useEffect(() => {
+  useEffect(() => {
     const loadData = async () => {
-        try {
-            const response = await axios.get('https://randomuser.me/api/?page=5&results=5');
-            console.log(response.data.results);
+      try {
+        const response = await axios.get(
+          "https://randomuser.me/api/?page=5&results=5"
+        );
+        console.log(response.data.results);
 
-            setPosts([...posts,...response.data.results]);
-        } catch (error) {
-            console.error(error);
-
-        }
+        setPosts([...posts, ...response.data.results]);
+      } catch (error) {
+        console.error(error);
+      }
     };
     loadData();
-}, []);
+  }, []);
 
   return (
     <div className=" text-black">
@@ -107,27 +106,30 @@ useEffect(() => {
         </div>
       </div>
 
-      <section className="bg-white mb-20">
+      <section className="bg-white pt-8">
         <span>
-          <h1 className="pl-32 text-3xl font-serif">Explore the latest live trends <br /> on food data</h1>
+          <h1 className="pl-32 text-3xl font-serif">
+            Explore the latest live trends <br /> on food data
+          </h1>
           <h1 className="pl-32 pt-6">
             We constantly track and update in real-time food market data, <br />
             enabling informed decisions.
           </h1>
         </span>
 
-        <div className="w-full ">
-          <table className="w-[90%] mt-10 rounded-t-[100%] ml-28">
-            <tr className=" bg-[#fed89d] py-2">
-              <th className="">Name</th>
-              <th>Last Price (₦)</th>
-              <th>24h Change</th>
-              <th>State</th>
-              <th>Region</th>
-              <th>Markets</th>
-            </tr>
+        <div className="w-full bg-white mt-10 ">
+          <span className="py-4 mx-24 bg-[#FFC160] flex justify-center rounded-tl-[96px] rounded-tr-[96px]">
+            <table className="">
+              <tr className="justify-between gap-4 p-4">
+                <th className="">Name</th>
+                <th>Last Price (₦)</th>
+                <th>24h Change</th>
+                <th>State</th>
+                <th>Region</th>
+                <th>Markets</th>
+              </tr>
 
-            <div>
+              {/* <div>
               <tr>
                 {posts?.map((row) => (
                   <div key={row.email.results} className="text-white">
@@ -140,9 +142,59 @@ useEffect(() => {
                   </div>
                 ))}
               </tr>
-            </div>
-          </table>
+            </div>  */}
+            </table>
+          </span>
         </div>
+
+        <div className="w-full bg-white mt-10 pb-10 ">
+          <span className="py-4 mx-80 bg-black flex justify-center rounded-tl-[96px] rounded-br-[96px]">
+            <h1 className="text-white  ">
+              Advertise your produce with us.{" "}
+              <a href="" className="text-[#FFC160]">
+                {" "}
+                Click here
+              </a>
+            </h1>
+          </span>
+        </div>
+      </section>
+
+      <div className="w-full bg-[#fff1db] flex">
+        <div className="w-[30%] bg-[#FF5446] h-[100vh] rounded-tl-[80px]">
+          <Image
+            className="ml-36 mr-[-8rem] absolute pt-72"
+            src="/fruits2.59116d13.png"
+            alt="Vercel Logo"
+            width={500}
+            height={100}
+            priority
+          />
+        </div>
+
+        <div className="w-[70%] flex ">
+          <span className="pl-80 ">
+            <h1 className="pt-40 font-medium text-5xl font-serif">
+              Ready to build a smart portfolio for <br /> food market data?
+            </h1>
+            <h1 className="text-lg font-bold pt-8 font-serif">
+              Create your account, subscribe and see how market data helps your
+              business performance with informed <br /> decision making.
+            </h1>
+            <button className="mt-40 px-32 rounded-md py-4 bg-black text-white">
+              Get Started
+            </button>
+          </span>
+        </div>
+      </div>
+
+      <section className="bg-white">
+        <h1 className="pt-16 pl-[25%]">Subscribe to our monthly newsletter to stay connected to our activities, get insights and updates on what's happening with everyday <br /> <h1 className="pl-[31%]">food data.</h1></h1>
+
+        <form action="" className="ml-[35%] w-[30%]  mt-[60px] border-[#ff5446] border-[1px]">
+            <input placeholder="E-mail address" type="text"  className="ml-4 my-3 focus:outline-0 border-t-white border-b--white"  />
+            <button className="bg-black text-white ml-20 px-16 rounded-md my-3 py-2">Subscribe</button>
+        </form>
       </section>
     </div>
   );
