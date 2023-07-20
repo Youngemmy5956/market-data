@@ -92,8 +92,9 @@ export default function page() {
               <th>Region</th>
               <th>Markets</th>
             </tr>
-            <tr>
-              <div>
+
+            <div>
+              <tr>
                 {posts?.map((post) => (
                   <div key={post.id} className="text-white">
                     <td>{post.gender} </td>
@@ -103,8 +104,8 @@ export default function page() {
                     <td>{post.login}</td>
                   </div>
                 ))}
-              </div>
-            </tr>
+              </tr>
+            </div>
           </table>
         </div>
       </section>
