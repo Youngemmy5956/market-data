@@ -75,15 +75,15 @@ export default function page() {
 
       <section className="bg-white mb-20">
         <span>
-          <h1 className="pl-32">Explore the latest live trends on food data</h1>
-          <h1 className="pl-32">
-            We constantly track and update in real-time food market data,
+          <h1 className="pl-32 text-3xl font-serif">Explore the latest live trends <br /> on food data</h1>
+          <h1 className="pl-32 pt-6">
+            We constantly track and update in real-time food market data, <br />
             enabling informed decisions.
           </h1>
         </span>
 
-        <div className="w-full">
-          <table className="w-[90%] rounded-t-[100%] ml-28">
+        <div className="w-full ">
+          <table className="w-[90%] mt-10 rounded-t-[100%] ml-28">
             <tr className=" bg-[#fed89d] py-2">
               <th className="">Name</th>
               <th>Last Price (₦)</th>
