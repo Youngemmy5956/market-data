@@ -3,6 +3,10 @@ import React from "react";
 import Image from "next/image";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { BsFacebook } from "react-icons/bs";
+import { BsTwitter } from "react-icons/bs";
+import { BiLogoLinkedin } from "react-icons/bi";
+import { BsInstagram } from "react-icons/bs";
 
 export default function page() {
   // const [data, setData] = useState(null)
@@ -43,12 +47,16 @@ export default function page() {
         console.log(response.data.results);
 
         setPosts([...posts, ...response.data.results]);
+        // console.log(response.data.results);
       } catch (error) {
         console.error(error);
       }
+     
     };
     loadData();
   }, []);
+
+
 
   return (
     <div className=" text-black">
@@ -131,14 +139,14 @@ export default function page() {
 
               {/* <div>
               <tr>
-                {posts?.map((row) => (
-                  <div key={row.email.results} className="text-white">
-                    <td>{row.picture.medium} </td>
-                    <td>{row.gender} </td>
-                    <td>{row.name.first} </td>
-                    <td>{row.location.country}</td>
-                    <td>{row.email}</td>
-                    <td>{row.login}</td>
+                {posts?.map((post) => (
+                  <div key={post.email.results} className="text-white">
+                    <td>{post.picture.medium} </td>
+                    <td>{post.gender} </td>
+                    <td>{post.name.first} </td>
+                    <td>{post.location.country}</td>
+                    <td>{post.email}</td>
+                    <td>{post.login}</td>
                   </div>
                 ))}
               </tr>
@@ -189,13 +197,84 @@ export default function page() {
       </div>
 
       <section className="bg-white">
-        <h1 className="pt-16 pl-[25%]">Subscribe to our monthly newsletter to stay connected to our activities, get insights and updates on what's happening with everyday <br /> <h1 className="pl-[31%]">food data.</h1></h1>
+        <h1 className="pt-16 pl-[25%]">
+          Subscribe to our monthly newsletter to stay connected to our
+          activities, get insights and updates on what's happening with everyday{" "}
+          <br /> <h1 className="pl-[31%]">food data.</h1>
+        </h1>
 
-        <form action="" className="ml-[35%] w-[30%]  mt-[60px] border-[#ff5446] border-[1px]">
-            <input placeholder="E-mail address" type="text"  className="ml-4 my-3 focus:outline-0 border-t-white border-b--white"  />
-            <button className="bg-black text-white ml-20 px-16 rounded-md my-3 py-2">Subscribe</button>
+        <form
+          action=""
+          className="ml-[35%] w-[30%]  mt-[60px] border-[#ff5446] border-[1px]"
+        >
+          <input
+            placeholder="E-mail address"
+            type="text"
+            className="ml-4 my-3 focus:outline-0 border-t-white border-b--white"
+          />
+          <button className="bg-black text-white ml-28 px-16 rounded-sm my-3 py-2">
+            Subscribe
+          </button>
         </form>
       </section>
+
+      <section className="bg-white flex pl-32 pt-32 gap-64">
+        <span>
+          <Image
+            src="/logo.47c1e2c4 (1).png"
+            alt="Vercel Logo"
+            width={120}
+            height={24}
+            priority
+          />
+        </span>
+
+        <span>
+          <h1 className="text-xl font-bold">Contact</h1>
+          <h1 className="pt-4 text-[#4AC16C]">info@marketdata.com</h1>
+          <h1 className="text-[#4ac16c]">operations@marketdata.ng</h1>
+          <span className="flex gap-4 mt-2 ">
+            <BsTwitter />
+            <BsFacebook />
+            <BiLogoLinkedin />
+            <BsInstagram />
+          </span>
+        </span>
+
+        <span>
+          <h1 className="text-xl font-bold">Lagos</h1>
+          <h1 className="pt-4 ">21, Oremeji Street, behind toll</h1>
+          <h1>gate, Victoria Island, Lagos..</h1>
+        </span>
+
+        <span className="mb-10">
+          <h1 className="text-xl font-bold ">Company</h1>
+          <h1 className="pt-4">
+            {" "}
+            <a href="">Solutions</a>
+          </h1>
+          <h1>
+            {" "}
+            <a href="">About</a>
+          </h1>
+          <h1>
+            {" "}
+            <a href="">Terms of Use</a>
+          </h1>
+          <h1>
+            <a href="">Privacy Policy</a>
+          </h1>
+          <h1 className="pb-20">
+            <a href="">Dispute resolution</a>
+          </h1>
+        </span>
+      </section>
+
+     <span className="bg-white">
+          
+      <hr className="ml-[515px] p-[1px] w-[50%] bg-[#ff5446]" />
+      <h1 className="bg-white text-center pb-20">Copyright © 2021 Market Data Limited - RC234523. Built within Lagos.💖</h1>
+     </span>
     </div>
   );
 }
