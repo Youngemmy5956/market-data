@@ -25,16 +25,31 @@ export default function page() {
 
 
   const [posts, setPosts] = useState([]);
-  const fetchData = async () => {
-    const { data } = await axios.get(
-      "https://randomuser.me/api/?page=5&results=5"
-    );
-    setPosts(data);
-    console.log(data);
-  };
-  useEffect(() => {
-    fetchData();
-  }, []);
+//   const fetchData = async () => {
+//     const { data } = await axios.get(
+//       "https://randomuser.me/api/?page=5&results=5"
+//     );
+//     setPosts([...posts,...data.results]);
+//     console.log(data.results);
+//   };
+//   useEffect(() => {
+//     fetchData();
+//   }, []);
+
+useEffect(() => {
+    const loadData = async () => {
+        try {
+            const response = await axios.get('https://randomuser.me/api/?page=5&results=5');
+            console.log(response.data.results);
+
+            setPosts([...posts,...response.data.results]);
+        } catch (error) {
+            console.error(error);
+
+        }
+    };
+    loadData();
+}, []);
 
   return (
     <div className=" text-black">
@@ -114,13 +129,14 @@ export default function page() {
 
             <div>
               <tr>
-                {posts?.map((post) => (
-                  <div key={post.id} className="text-white">
-                    <td>{post.gender} </td>
-                    <td>{post.name} </td>
-                    <td>{post.location}</td>
-                    <td>{post.email}</td>
-                    <td>{post.login}</td>
+                {posts?.map((row) => (
+                  <div key={row.email.results} className="text-white">
+                    <td>{row.picture.medium} </td>
+                    <td>{row.gender} </td>
+                    <td>{row.name.first} </td>
+                    <td>{row.location.country}</td>
+                    <td>{row.email}</td>
+                    <td>{row.login}</td>
                   </div>
                 ))}
               </tr>
