@@ -61,10 +61,11 @@ export default function page() {
   return (
     <div className=" text-black">
       <div className="w-full bg-[#fff1db] flex">
-        <div className="lg:md:flex md:lg:ml-32 rounded-bl-[80px] h-[100vh] pt-10 w-[70%] px-4">
+        <div className="lg:md:flex md:lg:ml-32 rounded-bl-[130px] h-[100vh] pt-10 w-[70%] px-4">
           <span>
             <div className="flex">
               <Image
+              className="cursor-pointer"
                 src="/logo.47c1e2c4 (1).png"
                 alt="Vercel Logo"
                 width={120}
@@ -221,6 +222,7 @@ export default function page() {
       <section className="bg-white flex pl-32 pt-32 gap-64">
         <span>
           <Image
+            className="cursor-pointer"
             src="/logo.47c1e2c4 (1).png"
             alt="Vercel Logo"
             width={120}
@@ -231,9 +233,9 @@ export default function page() {
 
         <span>
           <h1 className="text-xl font-bold">Contact</h1>
-          <h1 className="pt-4 text-[#4AC16C]">info@marketdata.com</h1>
-          <h1 className="text-[#4ac16c]">operations@marketdata.ng</h1>
-          <span className="flex gap-4 mt-2 ">
+          <h1 className="pt-4 text-[#4AC16C] cursor-pointer">info@marketdata.com</h1>
+          <h1 className="text-[#4ac16c] cursor-pointer">operations@marketdata.ng</h1>
+          <span className="flex gap-4 mt-2 cursor-pointer">
             <BsTwitter />
             <BsFacebook />
             <BiLogoLinkedin />
