@@ -42,7 +42,7 @@ export default function page() {
     const loadData = async () => {
       try {
         const response = await axios.get(
-          "https://randomuser.me/api/?page=5&results=5"
+          "https://randomuser.me/api/?page=5&results=10"
         );
         console.log(response.data.results);
 
@@ -51,12 +51,9 @@ export default function page() {
       } catch (error) {
         console.error(error);
       }
-     
     };
     loadData();
   }, []);
-
-
 
   return (
     <div className=" text-black">
@@ -65,7 +62,7 @@ export default function page() {
           <span>
             <div className="flex">
               <Image
-              className="cursor-pointer"
+                className="cursor-pointer"
                 src="/logo.47c1e2c4 (1).png"
                 alt="Vercel Logo"
                 width={120}
@@ -138,20 +135,20 @@ export default function page() {
                 <th>Markets</th>
               </tr>
 
-              {/* <div>
-              <tr>
-                {posts?.map((post) => (
-                  <div key={post.email.results} className="text-white">
-                    <td>{post.picture.medium} </td>
-                    <td>{post.gender} </td>
-                    <td>{post.name.first} </td>
-                    <td>{post.location.country}</td>
-                    <td>{post.email}</td>
-                    <td>{post.login}</td>
-                  </div>
-                ))}
-              </tr>
-            </div>  */}
+              <div>
+                <tr>
+                  {posts?.map((post) => (
+                    <div key={post.email.results} className="text-white">
+                      <td>{post.picture.medium} </td>
+                      <td>{post.gender} </td>
+                      <td>{post.name.first} </td>
+                      <td>{post.location.country}</td>
+                      <td>{post.email}</td>
+                      <td>{post.login}</td>
+                    </div>
+                  ))}
+                </tr>
+              </div>
             </table>
           </span>
         </div>
@@ -233,8 +230,12 @@ export default function page() {
 
         <span>
           <h1 className="text-xl font-bold">Contact</h1>
-          <h1 className="pt-4 text-[#4AC16C] cursor-pointer">info@marketdata.com</h1>
-          <h1 className="text-[#4ac16c] cursor-pointer">operations@marketdata.ng</h1>
+          <h1 className="pt-4 text-[#4AC16C] cursor-pointer">
+            info@marketdata.com
+          </h1>
+          <h1 className="text-[#4ac16c] cursor-pointer">
+            operations@marketdata.ng
+          </h1>
           <span className="flex gap-4 mt-2 cursor-pointer">
             <BsTwitter />
             <BsFacebook />
@@ -272,11 +273,12 @@ export default function page() {
         </span>
       </section>
 
-     <span className="bg-white">
-          
-      <hr className="ml-[515px] p-[1px] w-[50%] bg-[#ff5446]" />
-      <h1 className="bg-white text-center pb-20">Copyright © 2021 Market Data Limited - RC234523. Built within Lagos.💖</h1>
-     </span>
+      <span className="bg-white">
+        <hr className="ml-[515px] p-[1px] w-[50%] bg-[#ff5446]" />
+        <h1 className="bg-white text-center pb-20">
+          Copyright © 2021 Market Data Limited - RC234523. Built within Lagos.💖
+        </h1>
+      </span>
     </div>
   );
 }
