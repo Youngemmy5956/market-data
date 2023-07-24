@@ -135,7 +135,20 @@ export default function page() {
               </tr>
             </thead>
 
-            <span></span>
+            {posts.map((post) => (
+              <tbody>
+                <tr>
+                  {post.email.results}
+                  <td>
+                    {post.picture.medium} {post.name.first} {post.name.last}
+                  </td>
+                  <td>{post.location.country}</td>
+                  <td>{post.email}</td>
+                  <td>{post.phone}</td>
+                  <td>{post.gender}</td>
+                </tr>
+              </tbody>
+            ))}
           </table>
         </div>
 
