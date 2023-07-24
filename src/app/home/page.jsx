@@ -42,7 +42,7 @@ export default function page() {
     const loadData = async () => {
       try {
         const response = await axios.get(
-          "https://randomuser.me/api/?page=5&results=10"
+          "https://randomuser.me/api/?page=5&results=5"
         );
         console.log(response.data.results);
 
@@ -136,18 +136,16 @@ export default function page() {
               </tr>
 
               <div>
-                <tr>
-                  {posts?.map((post) => (
-                    <div key={post.email.results} className="text-white">
-                      <td>{post.picture.medium} </td>
-                      <td>{post.gender} </td>
-                      <td>{post.name.first} </td>
-                      <td>{post.location.country}</td>
-                      <td>{post.email}</td>
-                      <td>{post.login}</td>
-                    </div>
-                  ))}
-                </tr>
+                {posts.map((post) => (
+                  <tr>
+                    <td>{post.picture.medium} </td>
+                    <td>{post.gender} </td>
+                    <td>{post.name.first} </td>
+                    <td>{post.location.country}</td>
+                    <td>{post.email}</td>
+                    <td>{post.login}</td>
+                  </tr>
+                ))}
               </div>
             </table>
           </span>
