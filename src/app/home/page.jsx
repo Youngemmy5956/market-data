@@ -122,35 +122,91 @@ export default function page() {
           </h1>
         </span>
 
-        <div className="w-full bg-white mt-10 ">
-          <table className="py-4 mx-24 bg-[#FFC160] flex justify-center rounded-tl-[96px] rounded-tr-[96px]">
-            <thead>
-              <tr className="justify-between gap-4 p-4">
-                <th className="">Name</th>
-                <th>Last Price (₦)</th>
-                <th>24h Change</th>
-                <th>State</th>
-                <th>Region</th>
-                <th>Markets</th>
+        <div className="bg-[#FFC160] flex justify-around mt-16 px-6 py-4 mx-20 rounded-tl-[6rem] rounded-tr-[6rem]">
+          <ul className="flex text-black gap-32">
+            <li className="mr-mr-36">Name</li>
+            <li className="" >Country</li>
+            <li className="ml-14">Email</li>
+            <li className="">Gender</li>
+            <li className="ml-6">Phone</li>
+          </ul>
+
+          {/* <ul className="flex text-black gap-20 ">
+            <li className="">Email</li>
+            <li className="ml-6">Phone</li>
+            <li className="ml-20">Gender</li>
+          </ul> */}
+        </div>
+
+        <div>
+          {posts.map((post) => (
+            <span className="flex justify-between ml-32 mt-2">
+              <span className="flex">
+                <img className="rounded-full" src={post.picture.medium} alt="" />
+
+                <h1 className="text-black mt-4 ml-3 text-sm">
+                  {post.name.first} {post.name.last}
+                </h1>
+              </span>
+
+              <h1 className="text-black text-sm mt-4">
+                {" "}
+                {post.location.country}{" "}
+              </h1>
+
+              <h1 className="text-black text-sm mt-4"> {post.email} </h1>
+
+              <h1 className="text-black text-sm mt-4"> {post.gender} </h1>
+
+              <h1 className="text-black text-sm mt-4"> {post.phone} </h1>
+            </span>
+          ))}
+        </div>
+
+        {/* <div className="w-full bg-white mt-10 ">
+          <table className="py-4 mx-24 bg-[#FFC160] flex pl-10 justify-between rounded-tl-[96px] rounded-tr-[96px]">
+            <thead className="gap-10">
+              <tr className="">
+                <th className="pl-10">Name</th>
+                <th className="pl-36">Country</th>
+                <th className="pl-64">Email</th>
+                <th className="pl-80">Phone</th>
+                <th className="pl-32">Gender</th>
               </tr>
             </thead>
 
+            </table> */}
+
+        {/* <table className="ml-4 flex flex-col ">
+              
             {posts.map((post) => (
-              <tbody>
-                <tr>
-                  {post.email.results}
-                  <td>
-                    {post.picture.medium} {post.name.first} {post.name.last}
+            <tbody className="gap-10">
+              <tr className="">
+                <td className="pl-36"><img className="rounded-full text-black mt-32 flex flex-row" src={post.picture.medium} alt="" /> <h1 className="text-sm">{post.name.first} {post.name.last}</h1></td>
+                <td className="pl-20">{post.location.country}</td>
+                <td className="pl-48">{post.email}</td>
+                <td className="pl-48">{post.phone}</td>
+                <td className="pl-32">{post.gender}</td>
+              </tr>
+            </tbody>
+               ))} 
+                */}
+
+        {/* {posts.map((post) => (
+              <tbody className="">
+                <tr className="text-sm ">
+                  <td className="pl-4">
+                    <img className="rounded-full text-black mt-32 flex" src={post.picture.medium} alt="" /> <h1 className="text-sm">{post.name.first} {post.name.last}</h1>
                   </td>
-                  <td>{post.location.country}</td>
-                  <td>{post.email}</td>
-                  <td>{post.phone}</td>
-                  <td>{post.gender}</td>
+                  <td className="pl-96">{post.location.country}</td>
+                  <td className="pl-32">{post.email}</td>
+                  <td className="pl-32">{post.phone}</td>
+                  <td className="pl-32">{post.gender}</td>
                 </tr>
               </tbody>
-            ))}
-          </table>
-        </div>
+            ))} */}
+        {/* </table> */}
+        {/* </div> */}
 
         <div className="w-full bg-white mt-10 pb-10 ">
           <span className="py-4 mx-80 bg-black flex justify-center rounded-tl-[96px] rounded-br-[96px]">
