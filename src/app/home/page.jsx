@@ -26,7 +26,6 @@ export default function page() {
   // if (isLoading) return <p>Loading...</p>
   // if (!data) return <p>No profile data</p>
 
-  const [posts, setPosts] = useState([]);
   //   const fetchData = async () => {
   //     const { data } = await axios.get(
   //       "https://randomuser.me/api/?page=5&results=5"
@@ -38,6 +37,8 @@ export default function page() {
   //     fetchData();
   //   }, []);
 
+  const [posts, setPosts] = useState([]);
+
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -45,9 +46,7 @@ export default function page() {
           "https://randomuser.me/api/?page=5&results=5"
         );
         console.log(response.data.results);
-
         setPosts([...posts, ...response.data.results]);
-        // console.log(response.data.results);
       } catch (error) {
         console.error(error);
       }
@@ -124,8 +123,8 @@ export default function page() {
         </span>
 
         <div className="w-full bg-white mt-10 ">
-          <span className="py-4 mx-24 bg-[#FFC160] flex justify-center rounded-tl-[96px] rounded-tr-[96px]">
-            <table className="">
+          <table className="py-4 mx-24 bg-[#FFC160] flex justify-center rounded-tl-[96px] rounded-tr-[96px]">
+            <thead>
               <tr className="justify-between gap-4 p-4">
                 <th className="">Name</th>
                 <th>Last Price (₦)</th>
@@ -134,21 +133,10 @@ export default function page() {
                 <th>Region</th>
                 <th>Markets</th>
               </tr>
+            </thead>
 
-              <div>
-                {posts.map((post) => (
-                  <tr>
-                    <td>{post.picture.medium} </td>
-                    <td>{post.gender} </td>
-                    <td>{post.name.first} </td>
-                    <td>{post.location.country}</td>
-                    <td>{post.email}</td>
-                    <td>{post.login}</td>
-                  </tr>
-                ))}
-              </div>
-            </table>
-          </span>
+            <span></span>
+          </table>
         </div>
 
         <div className="w-full bg-white mt-10 pb-10 ">
