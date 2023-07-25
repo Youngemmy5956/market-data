@@ -122,12 +122,12 @@ export default function page() {
           </h1>
         </span>
 
-        <div className="bg-[#FFC160] flex justify-around mt-16 px-6 py-4 mx-20 rounded-tl-[6rem] rounded-tr-[6rem]">
+        <div className="bg-[#FFC160] flex justify-around pl-32 mt-16 px-6 py-4 mx-20 rounded-tl-[6rem] rounded-tr-[6rem]">
           <ul className="flex text-black gap-32">
-            <li className="mr-mr-36">Name</li>
-            <li className="" >Country</li>
-            <li className="ml-14">Email</li>
-            <li className="">Gender</li>
+            <li className="mr-36">Name</li>
+            <li className="mr-36" >Country</li>
+            <li className=" mr-64">Email</li>
+            <li className="pr-48">Gender</li>
             <li className="ml-6">Phone</li>
           </ul>
 
@@ -158,7 +158,7 @@ export default function page() {
 
               <h1 className="text-black text-sm mt-4"> {post.gender} </h1>
 
-              <h1 className="text-black text-sm mt-4"> {post.phone} </h1>
+              <h1 className="text-black text-sm mt-4 mr-52"> {post.phone} </h1>
             </span>
           ))}
         </div>
