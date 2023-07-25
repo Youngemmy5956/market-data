@@ -140,7 +140,7 @@ export default function page() {
 
         <div>
           {posts.map((post) => (
-            <span className="flex justify-between ml-32 mt-2">
+            <span id="#dis" className="flex justify-between ml-32 mt-2">
               <span className="flex">
                 <img className="rounded-full" src={post.picture.medium} alt="" />
 
@@ -161,6 +161,8 @@ export default function page() {
               <h1 className="text-black text-sm mt-4 mr-52"> {post.phone} </h1>
             </span>
           ))}
+
+          <a href="#dis" className="flex justify-center pt-4 text-green-500 cursor-pointer">Load more data......</a>
         </div>
 
         {/* <div className="w-full bg-white mt-10 ">
